@@ -126,8 +126,6 @@ var Async = (function (_Component) {
 			var pagination = _props.pagination;
 
 			var cache = this._cache;
-			console.log("in loadOptions");
-			debugger;
 
 			if (cache && cache.hasOwnProperty(inputValue)) {
 				console.log("we are doing things in the cache");
@@ -138,8 +136,6 @@ var Async = (function (_Component) {
 				});
 
 				if (!pagination || pagination && (cache[inputValue].page >= page || cache[inputValue].hasReachedLastPage)) {
-					console.log("we are returning here", pagination, cache);
-					debugger;
 					return;
 				}
 			}
@@ -252,7 +248,7 @@ var Async = (function (_Component) {
 		value: function focus() {
 			this.select.focus();
 			// trying this out
-			this.loadOptions();
+			//this.loadOptions()
 		}
 	}, {
 		key: '_onMenuScrollToBottom',
@@ -266,7 +262,6 @@ var Async = (function (_Component) {
 		value: function render() {
 			var _this3 = this;
 
-			console.log("trying to register", this.props);
 			var _props4 = this.props;
 			var children = _props4.children;
 			var loadingPlaceholder = _props4.loadingPlaceholder;
@@ -286,12 +281,9 @@ var Async = (function (_Component) {
 				onChange: function onChange(newValues) {
 					if (_this3.props.multi && _this3.props.value && newValues.length > _this3.props.value.length) {
 						console.log("clearing Values", newValues);
-						debugger;
-						// trying this
+						// trying to remove this
 						//this.clearOptions();
 					}
-					console.log("getting new values", newValues);
-					debugger;
 					_this3.props.onChange(newValues);
 				}
 			};
@@ -299,8 +291,6 @@ var Async = (function (_Component) {
 			return children(_extends({}, this.props, props, {
 				isLoading: isLoading,
 				onInputChange: this._onInputChange,
-				// try passing this
-				loadOptions: this.loadOptions,
 				onMenuScrollToBottom: this._onMenuScrollToBottom
 			}));
 		}
@@ -1030,7 +1020,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	getInitialState: function getInitialState() {
-		console.log("only once");
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -1140,8 +1129,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	focus: function focus() {
-		console.log('maybe in focus', this.props, this.input);
-		debugger;
 		if (!this.input) return;
 		this.input.focus();
 
@@ -1189,12 +1176,10 @@ var Select = _react2['default'].createClass({
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
 		if (this.props.disabled || event.type === 'mousedown' && event.button !== 0) {
-			debugger;
 			return;
 		}
 
 		if (event.target.tagName === 'INPUT') {
-			debugger;
 			return;
 		}
 
@@ -1215,8 +1200,6 @@ var Select = _react2['default'].createClass({
 			// since iOS ignores programmatic calls to input.focus() that weren't triggered by a click event.
 			// Call focus() again here to be safe.
 			this.focus();
-			console.log('maybe in isFocused', this.state.isFocused);
-			debugger;
 
 			var input = this.input;
 			if (typeof input.getInput === 'function') {
@@ -1242,7 +1225,6 @@ var Select = _react2['default'].createClass({
 	handleMouseDownOnArrow: function handleMouseDownOnArrow(event) {
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
-		console.log("pressed arrow");
 		if (this.props.disabled || event.type === 'mousedown' && event.button !== 0) {
 			return;
 		}
@@ -1272,14 +1254,12 @@ var Select = _react2['default'].createClass({
 
 	closeMenu: function closeMenu() {
 		if (this.props.onCloseResetsInput) {
-			debugger;
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
 				inputValue: ''
 			});
 		} else {
-			debugger;
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
@@ -1320,7 +1300,6 @@ var Select = _react2['default'].createClass({
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
 		}
-		debugger;
 		this.setState(onBlurredState);
 	},
 
@@ -1515,14 +1494,12 @@ var Select = _react2['default'].createClass({
 	selectValue: function selectValue(value) {
 		var _this3 = this;
 
-		console.log('selecting', value, this.props);
-		debugger;
 		//NOTE: update value in the callback to make sure the input value is empty so that there are no styling issues (Chrome had issue otherwise)
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
-			debugger;
 			this.setState({
-				isOpen: true,
+				//isOpen: true,
+				isOpen: false,
 				inputValue: '',
 				focusedIndex: null
 			}, function () {
@@ -1579,7 +1556,6 @@ var Select = _react2['default'].createClass({
 		event.stopPropagation();
 		event.preventDefault();
 		this.setValue(this.getResetValue());
-		debugger;
 		this.setState({
 			isOpen: false,
 			inputValue: ''
@@ -1962,11 +1938,9 @@ var Select = _react2['default'].createClass({
 	renderOuter: function renderOuter(options, valueArray, focusedOption) {
 		var _this7 = this;
 
-		console.log("what is renderOuter", options, valueArray, focusedOption);
 		var menu = this.renderMenu(options, valueArray, focusedOption);
 		console.log("what is the menu for this", menu, this.props);
 		if (!menu) {
-			debugger;
 			return null;
 		}
 
@@ -1991,16 +1965,12 @@ var Select = _react2['default'].createClass({
 	render: function render() {
 		var _this8 = this;
 
-		console.log("this is the current state", this.state);
 		var valueArray = this.getValueArray(this.props.value);
-		console.log("what is valueArray", valueArray);
 		var options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		var isOpen = this.state.isOpen;
 		// now trying to get rid of this
 		//if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
-		// now trying to get rid of this
-		// const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
-		var focusedOptionIndex = null;
+		var focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
 
 		var focusedOption = null;
 		if (focusedOptionIndex !== null) {
@@ -2029,7 +1999,6 @@ var Select = _react2['default'].createClass({
 			);
 		}
 
-		console.log("IS OPEN", isOpen);
 		return _react2['default'].createElement(
 			'div',
 			{ ref: function (ref) {
@@ -2062,9 +2031,7 @@ var Select = _react2['default'].createClass({
 				this.renderClear(),
 				this.renderArrow()
 			),
-			isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : (function () {
-				console.log("FUUUUCK");return null;
-			})()
+			isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : null
 		);
 	}
 

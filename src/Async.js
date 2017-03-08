@@ -89,8 +89,6 @@ export default class Async extends Component {
 	loadOptions (inputValue, page = 1) {
 		const { loadOptions, pagination } = this.props;
 		const cache = this._cache;
-        console.log("in loadOptions")
-        debugger
 
 		if (
 			cache &&
@@ -107,8 +105,6 @@ export default class Async extends Component {
 				!pagination ||
 				(pagination && (cache[inputValue].page >= page || cache[inputValue].hasReachedLastPage))
 			) {
-                console.log("we are returning here", pagination, cache)
-                debugger
 				return;
 			}
 		}
@@ -213,7 +209,7 @@ export default class Async extends Component {
 	focus () {
 		this.select.focus();
         // trying this out
-        this.loadOptions()
+        //this.loadOptions()
 	}
 
 	_onMenuScrollToBottom (inputValue) {
@@ -223,7 +219,6 @@ export default class Async extends Component {
 	}
 
 	render () {
-        console.log("trying to register", this.props)
 		const { children, loadingPlaceholder, placeholder } = this.props;
 		const { isLoading, isLoadingPage, options } = this.state;
 
@@ -235,12 +230,9 @@ export default class Async extends Component {
 			onChange: (newValues) => {
 				if (this.props.multi && this.props.value && (newValues.length > this.props.value.length)) {
                     console.log("clearing Values", newValues)
-                    debugger
-                    // trying this
+                    // trying to remove this
 					//this.clearOptions();
 				}
-                console.log("getting new values", newValues)
-                debugger
 				this.props.onChange(newValues);
 			}
 		};
@@ -250,8 +242,6 @@ export default class Async extends Component {
 			...props,
 			isLoading,
 			onInputChange: this._onInputChange,
-            // try passing this
-            loadOptions: this.loadOptions,
 			onMenuScrollToBottom: this._onMenuScrollToBottom,
 		});
 	}

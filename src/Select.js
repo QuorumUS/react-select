@@ -164,7 +164,6 @@ const Select = React.createClass({
 	},
 
 	getInitialState () {
-        console.log("only once")
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -274,8 +273,6 @@ const Select = React.createClass({
 	},
 
 	focus () {
-        console.log('maybe in focus', this.props, this.input)
-        debugger
 		if (!this.input) return;
 		this.input.focus();
 
@@ -323,12 +320,10 @@ const Select = React.createClass({
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
 		if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) {
-            debugger
 			return;
 		}
 
 		if (event.target.tagName === 'INPUT') {
-            debugger
 			return;
 		}
 
@@ -349,8 +344,6 @@ const Select = React.createClass({
 			// since iOS ignores programmatic calls to input.focus() that weren't triggered by a click event.
 			// Call focus() again here to be safe.
 			this.focus();
-            console.log('maybe in isFocused', this.state.isFocused)
-            debugger
 
 			let input = this.input;
 			if (typeof input.getInput === 'function') {
@@ -376,7 +369,6 @@ const Select = React.createClass({
 	handleMouseDownOnArrow (event) {
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
-        console.log("pressed arrow")
 		if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) {
 			return;
 		}
@@ -406,14 +398,12 @@ const Select = React.createClass({
 
 	closeMenu () {
 		if(this.props.onCloseResetsInput) {
-            debugger
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
 				inputValue: ''
 			});
 		} else {
-            debugger
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
@@ -454,7 +444,6 @@ const Select = React.createClass({
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
 		}
-        debugger
 		this.setState(onBlurredState);
 	},
 
@@ -622,14 +611,12 @@ const Select = React.createClass({
 	},
 
 	selectValue (value) {
-        console.log('selecting', value, this.props)
-        debugger
 		//NOTE: update value in the callback to make sure the input value is empty so that there are no styling issues (Chrome had issue otherwise)
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
-            debugger
 			this.setState({
-				isOpen: true,
+				//isOpen: true,
+				isOpen: false,
 				inputValue: '',
 				focusedIndex: null
 			}, () => {
@@ -682,7 +669,6 @@ const Select = React.createClass({
 		event.stopPropagation();
 		event.preventDefault();
 		this.setValue(this.getResetValue());
-        debugger
 		this.setState({
 			isOpen: false,
 			inputValue: '',
@@ -1054,11 +1040,9 @@ const Select = React.createClass({
 	},
 
 	renderOuter (options, valueArray, focusedOption) {
-        console.log("what is renderOuter", options, valueArray, focusedOption)
 		let menu = this.renderMenu(options, valueArray, focusedOption);
         console.log("what is the menu for this", menu, this.props)
 		if (!menu) {
-            debugger
 			return null;
 		}
 
@@ -1075,16 +1059,12 @@ const Select = React.createClass({
 	},
 
 	render () {
-        console.log("this is the current state", this.state)
 		let valueArray = this.getValueArray(this.props.value);
-        console.log("what is valueArray", valueArray)
 		let options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		let isOpen = this.state.isOpen;
         // now trying to get rid of this
 		//if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
-        // now trying to get rid of this
-		// const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
-        const focusedOptionIndex = null
+        const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
 
 		let focusedOption = null;
 		if (focusedOptionIndex !== null) {
@@ -1118,7 +1098,6 @@ const Select = React.createClass({
 			);
 		}
 
-        console.log("IS OPEN", isOpen)
 		return (
 			<div ref={ref => this.wrapper = ref}
 				 className={className}
@@ -1142,7 +1121,7 @@ const Select = React.createClass({
 					{this.renderClear()}
 					{this.renderArrow()}
 				</div>
-				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : (() => {console.log("FUUUUCK"); return null})()}
+				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : null}
 			</div>
 		);
 	}
