@@ -1765,6 +1765,7 @@ var Select = _react2['default'].createClass({
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
 			this.setState({
+				isOpen: false,
 				inputValue: '',
 				focusedIndex: null
 			}, function () {
