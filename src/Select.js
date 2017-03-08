@@ -272,6 +272,8 @@ const Select = React.createClass({
 	},
 
 	focus () {
+        console.log('maybe in focus', this.props)
+        debugger
 		if (!this.input) return;
 		this.input.focus();
 
@@ -319,10 +321,12 @@ const Select = React.createClass({
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
 		if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) {
+            debugger
 			return;
 		}
 
 		if (event.target.tagName === 'INPUT') {
+            debugger
 			return;
 		}
 
@@ -343,6 +347,8 @@ const Select = React.createClass({
 			// since iOS ignores programmatic calls to input.focus() that weren't triggered by a click event.
 			// Call focus() again here to be safe.
 			this.focus();
+            console.log('maybe in isFocused', this.state.isFocused)
+            debugger
 
 			let input = this.input;
 			if (typeof input.getInput === 'function') {
@@ -368,6 +374,7 @@ const Select = React.createClass({
 	handleMouseDownOnArrow (event) {
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
+        console.log("pressed arrow")
 		if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) {
 			return;
 		}
