@@ -94,8 +94,6 @@ export default class Async extends Component {
 			cache &&
 			cache.hasOwnProperty(inputValue)
 		) {
-            console.log("we are doing things in the cache")
-            debugger
 			this.setState({
 				options: cache[inputValue].options,
 				page: cache[inputValue].page,
@@ -166,7 +164,6 @@ export default class Async extends Component {
 	}
 
 	_onInputChange (inputValue) {
-        debugger
 		const { ignoreAccents, ignoreCase, onInputChange } = this.props;
 
 		if (ignoreAccents) {
@@ -208,8 +205,6 @@ export default class Async extends Component {
 
 	focus () {
 		this.select.focus();
-        // trying this out
-        //this.loadOptions()
 	}
 
 	_onMenuScrollToBottom (inputValue) {

@@ -127,8 +127,6 @@ var Async = (function (_Component) {
 			var cache = this._cache;
 
 			if (cache && cache.hasOwnProperty(inputValue)) {
-				console.log("we are doing things in the cache");
-				debugger;
 				this.setState({
 					options: cache[inputValue].options,
 					page: cache[inputValue].page
@@ -195,7 +193,6 @@ var Async = (function (_Component) {
 	}, {
 		key: '_onInputChange',
 		value: function _onInputChange(inputValue) {
-			debugger;
 			var _props2 = this.props;
 			var ignoreAccents = _props2.ignoreAccents;
 			var ignoreCase = _props2.ignoreCase;
@@ -246,8 +243,6 @@ var Async = (function (_Component) {
 		key: 'focus',
 		value: function focus() {
 			this.select.focus();
-			// trying this out
-			//this.loadOptions()
 		}
 	}, {
 		key: '_onMenuScrollToBottom',
