@@ -1127,7 +1127,7 @@ const Select = React.createClass({
 					{this.renderClear()}
 					{this.renderArrow()}
 				</div>
-				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : (() => {console.log("FUUUUCK"); debugger; return null})()}
+				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : (() => {console.log("FUUUUCK"); return null})()}
 			</div>
 		);
 	}
