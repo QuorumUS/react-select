@@ -165,7 +165,6 @@ const Select = React.createClass({
 
 	getInitialState () {
         console.log("only once")
-        debugger
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -630,7 +629,7 @@ const Select = React.createClass({
 		if (this.props.multi) {
             debugger
 			this.setState({
-				isOpen: false,
+				isOpen: true,
 				inputValue: '',
 				focusedIndex: null
 			}, () => {

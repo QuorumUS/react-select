@@ -112,7 +112,6 @@ var Async = (function (_Component) {
 	}, {
 		key: 'clearOptions',
 		value: function clearOptions() {
-			debugger;
 			this.setState({ options: [] });
 		}
 	}, {
@@ -285,8 +284,12 @@ var Async = (function (_Component) {
 				},
 				onChange: function onChange(newValues) {
 					if (_this3.props.multi && _this3.props.value && newValues.length > _this3.props.value.length) {
+						console.log("clearing Values", newValues);
+						debugger;
 						_this3.clearOptions();
 					}
+					console.log("getting new values", newValues);
+					debugger;
 					_this3.props.onChange(newValues);
 				}
 			};
@@ -1295,7 +1298,6 @@ var Select = _react2['default'].createClass({
 
 	getInitialState: function getInitialState() {
 		console.log("only once");
-		debugger;
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -1787,7 +1789,7 @@ var Select = _react2['default'].createClass({
 		if (this.props.multi) {
 			debugger;
 			this.setState({
-				isOpen: false,
+				isOpen: true,
 				inputValue: '',
 				focusedIndex: null
 			}, function () {

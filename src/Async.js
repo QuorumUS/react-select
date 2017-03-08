@@ -83,7 +83,6 @@ export default class Async extends Component {
 	}
 
 	clearOptions() {
-        debugger
 		this.setState({ options: [] });
 	}
 
@@ -235,8 +234,12 @@ export default class Async extends Component {
 			ref: (ref) => (this.select = ref),
 			onChange: (newValues) => {
 				if (this.props.multi && this.props.value && (newValues.length > this.props.value.length)) {
+                    console.log("clearing Values", newValues)
+                    debugger
 					this.clearOptions();
 				}
+                console.log("getting new values", newValues)
+                debugger
 				this.props.onChange(newValues);
 			}
 		};
