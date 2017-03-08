@@ -1936,7 +1936,9 @@ var Select = _react2['default'].createClass({
 	renderOuter: function renderOuter(options, valueArray, focusedOption) {
 		var _this7 = this;
 
+		console.log("what is renderOuter", options, valueArray, focusedOption);
 		var menu = this.renderMenu(options, valueArray, focusedOption);
+		console.log("what is the menu for this", menu);
 		if (!menu) {
 			return null;
 		}
@@ -1964,6 +1966,7 @@ var Select = _react2['default'].createClass({
 
 		console.log("this is the current state", this.state);
 		var valueArray = this.getValueArray(this.props.value);
+		console.log("what is valueArray", valueArray);
 		var options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		var isOpen = this.state.isOpen;
 		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;

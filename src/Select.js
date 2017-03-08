@@ -1040,7 +1040,9 @@ const Select = React.createClass({
 	},
 
 	renderOuter (options, valueArray, focusedOption) {
+        console.log("what is renderOuter", options, valueArray, focusedOption)
 		let menu = this.renderMenu(options, valueArray, focusedOption);
+        console.log("what is the menu for this", menu)
 		if (!menu) {
 			return null;
 		}
@@ -1060,6 +1062,7 @@ const Select = React.createClass({
 	render () {
         console.log("this is the current state", this.state)
 		let valueArray = this.getValueArray(this.props.value);
+        console.log("what is valueArray", valueArray)
 		let options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		let isOpen = this.state.isOpen;
 		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
