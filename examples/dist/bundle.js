@@ -2206,8 +2206,9 @@ var Select = _react2['default'].createClass({
 
 		console.log("what is renderOuter", options, valueArray, focusedOption);
 		var menu = this.renderMenu(options, valueArray, focusedOption);
-		console.log("what is the menu for this", menu);
+		console.log("what is the menu for this", menu, this.props);
 		if (!menu) {
+			debugger;
 			return null;
 		}
 

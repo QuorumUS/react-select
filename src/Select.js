@@ -1042,8 +1042,9 @@ const Select = React.createClass({
 	renderOuter (options, valueArray, focusedOption) {
         console.log("what is renderOuter", options, valueArray, focusedOption)
 		let menu = this.renderMenu(options, valueArray, focusedOption);
-        console.log("what is the menu for this", menu)
+        console.log("what is the menu for this", menu, this.props)
 		if (!menu) {
+            debugger
 			return null;
 		}
 
