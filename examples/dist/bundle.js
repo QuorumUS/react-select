@@ -1286,6 +1286,8 @@ var Select = _react2['default'].createClass({
 	},
 
 	getInitialState: function getInitialState() {
+		console.log("only once");
+		debugger;
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -2251,7 +2253,8 @@ var Select = _react2['default'].createClass({
 		console.log("what is valueArray", valueArray);
 		var options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		var isOpen = this.state.isOpen;
-		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
+		// now trying to get rid of this
+		//if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
 		// now trying to get rid of this
 		// const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
 		var focusedOptionIndex = null;

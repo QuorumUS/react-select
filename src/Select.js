@@ -164,6 +164,8 @@ const Select = React.createClass({
 	},
 
 	getInitialState () {
+        console.log("only once")
+        debugger
 		return {
 			inputValue: '',
 			isFocused: false,
@@ -1079,7 +1081,8 @@ const Select = React.createClass({
         console.log("what is valueArray", valueArray)
 		let options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		let isOpen = this.state.isOpen;
-		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
+        // now trying to get rid of this
+		//if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
         // now trying to get rid of this
 		// const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
         const focusedOptionIndex = null
