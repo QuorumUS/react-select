@@ -616,6 +616,7 @@ const Select = React.createClass({
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
 			this.setState({
+				isOpen: false,
 				inputValue: '',
 				focusedIndex: null
 			}, () => {
