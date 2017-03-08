@@ -610,6 +610,8 @@ const Select = React.createClass({
 	},
 
 	selectValue (value) {
+        console.log('selecting', value, this.props)
+        debugger
 		//NOTE: update value in the callback to make sure the input value is empty so that there are no styling issues (Chrome had issue otherwise)
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
