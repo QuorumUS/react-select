@@ -112,6 +112,7 @@ var Async = (function (_Component) {
 	}, {
 		key: 'clearOptions',
 		value: function clearOptions() {
+			debugger;
 			this.setState({ options: [] });
 		}
 	}, {
@@ -125,6 +126,8 @@ var Async = (function (_Component) {
 			var pagination = _props.pagination;
 
 			var cache = this._cache;
+			console.log("in loadOptions");
+			debugger;
 
 			if (cache && cache.hasOwnProperty(inputValue)) {
 				console.log("we are doing things in the cache");
@@ -197,6 +200,7 @@ var Async = (function (_Component) {
 	}, {
 		key: '_onInputChange',
 		value: function _onInputChange(inputValue) {
+			debugger;
 			var _props2 = this.props;
 			var ignoreAccents = _props2.ignoreAccents;
 			var ignoreCase = _props2.ignoreCase;
@@ -247,6 +251,8 @@ var Async = (function (_Component) {
 		key: 'focus',
 		value: function focus() {
 			this.select.focus();
+			// trying this out
+			this.loadOptions();
 		}
 	}, {
 		key: '_onMenuScrollToBottom',
@@ -288,6 +294,8 @@ var Async = (function (_Component) {
 			return children(_extends({}, this.props, props, {
 				isLoading: isLoading,
 				onInputChange: this._onInputChange,
+				// try passing this
+				loadOptions: this.loadOptions,
 				onMenuScrollToBottom: this._onMenuScrollToBottom
 			}));
 		}

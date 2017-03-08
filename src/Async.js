@@ -83,12 +83,15 @@ export default class Async extends Component {
 	}
 
 	clearOptions() {
+        debugger
 		this.setState({ options: [] });
 	}
 
 	loadOptions (inputValue, page = 1) {
 		const { loadOptions, pagination } = this.props;
 		const cache = this._cache;
+        console.log("in loadOptions")
+        debugger
 
 		if (
 			cache &&
@@ -168,6 +171,7 @@ export default class Async extends Component {
 	}
 
 	_onInputChange (inputValue) {
+        debugger
 		const { ignoreAccents, ignoreCase, onInputChange } = this.props;
 
 		if (ignoreAccents) {
@@ -209,6 +213,8 @@ export default class Async extends Component {
 
 	focus () {
 		this.select.focus();
+        // trying this out
+        this.loadOptions()
 	}
 
 	_onMenuScrollToBottom (inputValue) {
@@ -240,6 +246,8 @@ export default class Async extends Component {
 			...props,
 			isLoading,
 			onInputChange: this._onInputChange,
+            // try passing this
+            loadOptions: this.loadOptions,
 			onMenuScrollToBottom: this._onMenuScrollToBottom,
 		});
 	}
