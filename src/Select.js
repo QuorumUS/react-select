@@ -1103,6 +1103,7 @@ const Select = React.createClass({
 			);
 		}
 
+        console.log("IS OPEN", isOpen)
 		return (
 			<div ref={ref => this.wrapper = ref}
 				 className={className}
@@ -1126,7 +1127,7 @@ const Select = React.createClass({
 					{this.renderClear()}
 					{this.renderArrow()}
 				</div>
-				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : null}
+				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : (() => {console.log("FUUUUCK"); debugger; return null})()}
 			</div>
 		);
 	}
