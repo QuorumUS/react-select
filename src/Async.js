@@ -224,7 +224,6 @@ export default class Async extends Component {
 			ref: (ref) => (this.select = ref),
 			onChange: (newValues) => {
 				if (this.props.multi && this.props.value && (newValues.length > this.props.value.length)) {
-                    console.log("clearing Values", newValues)
                     // trying to remove this
 					//this.clearOptions();
 				}

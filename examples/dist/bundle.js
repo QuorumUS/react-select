@@ -274,7 +274,6 @@ var Async = (function (_Component) {
 				},
 				onChange: function onChange(newValues) {
 					if (_this3.props.multi && _this3.props.value && newValues.length > _this3.props.value.length) {
-						console.log("clearing Values", newValues);
 						// trying to remove this
 						//this.clearOptions();
 					}
@@ -2202,7 +2201,6 @@ var Select = _react2['default'].createClass({
 		var _this7 = this;
 
 		var menu = this.renderMenu(options, valueArray, focusedOption);
-		console.log("what is the menu for this", menu, this.props);
 		if (!menu) {
 			return null;
 		}
