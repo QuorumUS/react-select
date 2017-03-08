@@ -236,7 +236,8 @@ export default class Async extends Component {
 				if (this.props.multi && this.props.value && (newValues.length > this.props.value.length)) {
                     console.log("clearing Values", newValues)
                     debugger
-					this.clearOptions();
+                    // trying this
+					//this.clearOptions();
 				}
                 console.log("getting new values", newValues)
                 debugger
