@@ -94,6 +94,8 @@ export default class Async extends Component {
 			cache &&
 			cache.hasOwnProperty(inputValue)
 		) {
+            console.log("we are doing things in the cache")
+            debugger
 			this.setState({
 				options: cache[inputValue].options,
 				page: cache[inputValue].page,
@@ -103,6 +105,8 @@ export default class Async extends Component {
 				!pagination ||
 				(pagination && (cache[inputValue].page >= page || cache[inputValue].hasReachedLastPage))
 			) {
+                console.log("we are returning here", pagination, cache)
+                debugger
 				return;
 			}
 		}
