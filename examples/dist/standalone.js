@@ -1259,12 +1259,14 @@ var Select = _react2['default'].createClass({
 
 	closeMenu: function closeMenu() {
 		if (this.props.onCloseResetsInput) {
+			debugger;
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
 				inputValue: ''
 			});
 		} else {
+			debugger;
 			this.setState({
 				isOpen: false,
 				isPseudoFocused: this.state.isFocused && !this.props.multi,
@@ -1305,6 +1307,7 @@ var Select = _react2['default'].createClass({
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
 		}
+		debugger;
 		this.setState(onBlurredState);
 	},
 
@@ -1504,6 +1507,7 @@ var Select = _react2['default'].createClass({
 		//NOTE: update value in the callback to make sure the input value is empty so that there are no styling issues (Chrome had issue otherwise)
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
+			debugger;
 			this.setState({
 				isOpen: false,
 				inputValue: '',
@@ -1562,6 +1566,7 @@ var Select = _react2['default'].createClass({
 		event.stopPropagation();
 		event.preventDefault();
 		this.setValue(this.getResetValue());
+		debugger;
 		this.setState({
 			isOpen: false,
 			inputValue: ''
