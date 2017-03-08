@@ -1962,6 +1962,7 @@ var Select = _react2['default'].createClass({
 	render: function render() {
 		var _this8 = this;
 
+		console.log("this is the current state", this.state);
 		var valueArray = this.getValueArray(this.props.value);
 		var options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		var isOpen = this.state.isOpen;

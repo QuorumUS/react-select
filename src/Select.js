@@ -1058,6 +1058,7 @@ const Select = React.createClass({
 	},
 
 	render () {
+        console.log("this is the current state", this.state)
 		let valueArray = this.getValueArray(this.props.value);
 		let options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		let isOpen = this.state.isOpen;
