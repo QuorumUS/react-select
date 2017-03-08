@@ -1002,7 +1002,8 @@ var Select = _react2['default'].createClass({
 			noResultsText: 'No results found',
 			onBlurResetsInput: true,
 			onCloseResetsInput: true,
-			openAfterFocus: false,
+			//openAfterFocus: false,
+			openAfterFocus: true,
 			optionComponent: _Option2['default'],
 			pageSize: 5,
 			placeholder: 'Select...',
@@ -1126,7 +1127,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	focus: function focus() {
-		console.log('maybe in focus', this.props);
+		console.log('maybe in focus', this.props, this.input);
 		debugger;
 		if (!this.input) return;
 		this.input.focus();

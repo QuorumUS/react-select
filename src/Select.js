@@ -148,7 +148,8 @@ const Select = React.createClass({
 			noResultsText: 'No results found',
 			onBlurResetsInput: true,
 			onCloseResetsInput: true,
-			openAfterFocus: false,
+			//openAfterFocus: false,
+			openAfterFocus: true,
 			optionComponent: Option,
 			pageSize: 5,
 			placeholder: 'Select...',
@@ -272,7 +273,7 @@ const Select = React.createClass({
 	},
 
 	focus () {
-        console.log('maybe in focus', this.props)
+        console.log('maybe in focus', this.props, this.input)
         debugger
 		if (!this.input) return;
 		this.input.focus();
