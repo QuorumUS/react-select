@@ -258,7 +258,6 @@ var Async = (function (_Component) {
 			var _this3 = this;
 
 			console.log("trying to register", this.props);
-			debugger;
 			var _props4 = this.props;
 			var children = _props4.children;
 			var loadingPlaceholder = _props4.loadingPlaceholder;

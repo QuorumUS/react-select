@@ -215,7 +215,6 @@ export default class Async extends Component {
 
 	render () {
         console.log("trying to register", this.props)
-        debugger
 		const { children, loadingPlaceholder, placeholder } = this.props;
 		const { isLoading, isLoadingPage, options } = this.state;
 
