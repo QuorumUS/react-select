@@ -1063,7 +1063,9 @@ const Select = React.createClass({
 		let options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
 		let isOpen = this.state.isOpen;
 		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
-		const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
+        // now trying to get rid of this
+		// const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
+        const focusedOptionIndex = null
 
 		let focusedOption = null;
 		if (focusedOptionIndex !== null) {
