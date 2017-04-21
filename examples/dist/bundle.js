@@ -109,16 +109,6 @@ var Async = (function (_Component) {
 					_this.setState(_defineProperty({}, prop, nextProps[prop]));
 				}
 			});
-			console.log("what know", nextProps, nextState, this.props);
-			//if (nextState.isOpen !== this.state.isOpen) {
-			//// this is ya boy will coming at you with a fix to the react-select
-			//// source code. if we have a prop indicating that we only want to load
-			//// on open, and we are opening, then load our data
-			//if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-			//// load data
-			//this.loadOptions('')
-			//}
-			//}
 		}
 	}, {
 		key: 'clearOptions',
@@ -1335,10 +1325,11 @@ var Select = _react2['default'].createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			var handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
-			console.log("in main select", this.props, this.state, nextProps, nextState);
 			// this is ya boy will coming at you with a fix to the react-select
 			// source code. if we have a prop indicating that we only want to load
 			// on open, and we are opening, then load our data
+			// I'm passing this asyncLoadOptions function from the Async select
+			// as it is not available on the standard Select component
 			if (this.props.loadOnOpen && nextState.isOpen && this.props.asyncLoadOptions) {
 				// load data
 				this.props.asyncLoadOptions('');

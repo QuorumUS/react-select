@@ -205,10 +205,11 @@ const Select = React.createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
-            console.log("in main select", this.props, this.state, nextProps, nextState)
             // this is ya boy will coming at you with a fix to the react-select
             // source code. if we have a prop indicating that we only want to load
             // on open, and we are opening, then load our data
+            // I'm passing this asyncLoadOptions function from the Async select
+            // as it is not available on the standard Select component
             if (this.props.loadOnOpen && nextState.isOpen && this.props.asyncLoadOptions) {
                 // load data
                 this.props.asyncLoadOptions('')
