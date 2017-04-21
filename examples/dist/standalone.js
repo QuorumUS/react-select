@@ -1053,6 +1053,7 @@ var Select = _react2['default'].createClass({
 	componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
 		if (nextState.isOpen !== this.state.isOpen) {
 			this.toggleTouchOutsideEvent(nextState.isOpen);
+			console.log("HELLO TESTING");
 			var handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
 		}
