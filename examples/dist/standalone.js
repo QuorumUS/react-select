@@ -87,6 +87,7 @@ var Async = (function (_Component) {
 
 		this._onInputChange = this._onInputChange.bind(this);
 		this._onMenuScrollToBottom = this._onMenuScrollToBottom.bind(this);
+		this.loadOptions = this.loadOptions.bind(this);
 	}
 
 	_createClass(Async, [{

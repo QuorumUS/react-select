@@ -61,6 +61,7 @@ export default class Async extends Component {
 
 		this._onInputChange = this._onInputChange.bind(this);
 		this._onMenuScrollToBottom = this._onMenuScrollToBottom.bind(this);
+        this.loadOptions = this.loadOptions.bind(this)
 	}
 
 	componentDidMount () {
