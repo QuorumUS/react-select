@@ -198,13 +198,6 @@ const Select = React.createClass({
 				required: this.handleRequired(valueArray[0], nextProps.multi),
 			});
 		}
-        // this is ya boy will coming at you with a fix to the react-select
-        // source code. if we have a prop indicating that we only want to load
-        // on open, and we are opening, then load our data
-        if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-            // load data
-            this.loadOptions('')
-        }
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -213,6 +206,13 @@ const Select = React.createClass({
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
 		}
+        // this is ya boy will coming at you with a fix to the react-select
+        // source code. if we have a prop indicating that we only want to load
+        // on open, and we are opening, then load our data
+        if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
+            // load data
+            this.loadOptions('')
+        }
 	},
 
 	componentDidUpdate (prevProps, prevState) {

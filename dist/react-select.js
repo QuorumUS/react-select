@@ -1058,13 +1058,6 @@ var Select = _react2['default'].createClass({
 				required: this.handleRequired(valueArray[0], nextProps.multi)
 			});
 		}
-		// this is ya boy will coming at you with a fix to the react-select
-		// source code. if we have a prop indicating that we only want to load
-		// on open, and we are opening, then load our data
-		if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-			// load data
-			this.loadOptions('');
-		}
 	},
 
 	componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
@@ -1072,6 +1065,13 @@ var Select = _react2['default'].createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			var handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
+		}
+		// this is ya boy will coming at you with a fix to the react-select
+		// source code. if we have a prop indicating that we only want to load
+		// on open, and we are opening, then load our data
+		if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
+			// load data
+			this.loadOptions('');
 		}
 	},
 
@@ -1318,10 +1318,10 @@ var Select = _react2['default'].createClass({
 		var newInputValue = event.target.value;
 
 		if (this.state.inputValue !== event.target.value && this.props.onInputChange) {
-			var _nextState = this.props.onInputChange(newInputValue);
+			var nextState = this.props.onInputChange(newInputValue);
 			// Note: != used deliberately here to catch undefined and null
-			if (_nextState != null && typeof _nextState !== 'object') {
-				newInputValue = '' + _nextState;
+			if (nextState != null && typeof nextState !== 'object') {
+				newInputValue = '' + nextState;
 			}
 		}
 
