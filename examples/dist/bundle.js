@@ -108,15 +108,16 @@ var Async = (function (_Component) {
 					_this.setState(_defineProperty({}, prop, nextProps[prop]));
 				}
 			});
-			if (nextState.isOpen !== this.state.isOpen) {
-				// this is ya boy will coming at you with a fix to the react-select
-				// source code. if we have a prop indicating that we only want to load
-				// on open, and we are opening, then load our data
-				if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-					// load data
-					this.loadOptions('');
-				}
-			}
+			console.log("what know", nextProps, nextState, this.props);
+			//if (nextState.isOpen !== this.state.isOpen) {
+			//// this is ya boy will coming at you with a fix to the react-select
+			//// source code. if we have a prop indicating that we only want to load
+			//// on open, and we are opening, then load our data
+			//if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
+			//// load data
+			//this.loadOptions('')
+			//}
+			//}
 		}
 	}, {
 		key: 'clearOptions',
@@ -1325,6 +1326,13 @@ var Select = _react2['default'].createClass({
 				required: this.handleRequired(valueArray[0], nextProps.multi)
 			});
 		}
+		// this is ya boy will coming at you with a fix to the react-select
+		// source code. if we have a prop indicating that we only want to load
+		// on open, and we are opening, then load our data
+		if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
+			// load data
+			this.loadOptions('');
+		}
 	},
 
 	componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
@@ -1578,10 +1586,10 @@ var Select = _react2['default'].createClass({
 		var newInputValue = event.target.value;
 
 		if (this.state.inputValue !== event.target.value && this.props.onInputChange) {
-			var nextState = this.props.onInputChange(newInputValue);
+			var _nextState = this.props.onInputChange(newInputValue);
 			// Note: != used deliberately here to catch undefined and null
-			if (nextState != null && typeof nextState !== 'object') {
-				newInputValue = '' + nextState;
+			if (_nextState != null && typeof _nextState !== 'object') {
+				newInputValue = '' + _nextState;
 			}
 		}
 
