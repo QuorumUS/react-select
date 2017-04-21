@@ -109,6 +109,15 @@ var Async = (function (_Component) {
 					_this.setState(_defineProperty({}, prop, nextProps[prop]));
 				}
 			});
+			if (nextState.isOpen !== this.state.isOpen) {
+				// this is ya boy will coming at you with a fix to the react-select
+				// source code. if we have a prop indicating that we only want to load
+				// on open, and we are opening, then load our data
+				if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
+					// load data
+					this.loadOptions('');
+				}
+			}
 		}
 	}, {
 		key: 'clearOptions',
@@ -1055,13 +1064,6 @@ var Select = _react2['default'].createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			var handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
-			// this is ya boy will coming at you with a fix to the react-select
-			// source code. if we have a prop indicating that we only want to load
-			// on open, and we are opening, then load our data
-			if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-				// load data
-				this.props.loadOptions('');
-			}
 		}
 	},
 

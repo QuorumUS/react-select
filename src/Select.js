@@ -205,13 +205,6 @@ const Select = React.createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
-            // this is ya boy will coming at you with a fix to the react-select
-            // source code. if we have a prop indicating that we only want to load
-            // on open, and we are opening, then load our data
-            if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-                // load data
-                this.props.loadOptions('')
-            }
 		}
 	},
 
