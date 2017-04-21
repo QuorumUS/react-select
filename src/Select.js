@@ -211,7 +211,7 @@ const Select = React.createClass({
             // on open, and we are opening, then load our data
             if (this.props.loadOnOpen && nextState.isOpen && this.props.asyncLoadOptions) {
                 // load data
-                this.asyncLoadOptions('')
+                this.props.asyncLoadOptions('')
             }
 		}
 	},
