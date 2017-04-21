@@ -81,7 +81,7 @@ export default class Async extends Component {
 			}
 		});
         console.log("what know", nextProps, nextState, this.props)
-		//if (nextState.isOpen !== this.state.isOpen) {
+        //if (nextState.isOpen !== this.state.isOpen) {
             //// this is ya boy will coming at you with a fix to the react-select
             //// source code. if we have a prop indicating that we only want to load
             //// on open, and we are opening, then load our data
@@ -244,6 +244,7 @@ export default class Async extends Component {
 		return children({
 			...this.props,
 			...props,
+            asyncLoadOptions: this.loadOptions,
 			isLoading,
 			onInputChange: this._onInputChange,
 			onMenuScrollToBottom: this._onMenuScrollToBottom,

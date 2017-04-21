@@ -292,6 +292,7 @@ var Async = (function (_Component) {
 			};
 
 			return children(_extends({}, this.props, props, {
+				asyncLoadOptions: this.loadOptions,
 				isLoading: isLoading,
 				onInputChange: this._onInputChange,
 				onMenuScrollToBottom: this._onMenuScrollToBottom
@@ -1333,13 +1334,14 @@ var Select = _react2['default'].createClass({
 			this.toggleTouchOutsideEvent(nextState.isOpen);
 			var handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
-		}
-		// this is ya boy will coming at you with a fix to the react-select
-		// source code. if we have a prop indicating that we only want to load
-		// on open, and we are opening, then load our data
-		if (this.props.loadOnOpen && nextState.isOpen && this.props.loadOptions) {
-			// load data
-			this.loadOptions('');
+			console.log("in main select", this.props, this.state, nextProps, nextState);
+			// this is ya boy will coming at you with a fix to the react-select
+			// source code. if we have a prop indicating that we only want to load
+			// on open, and we are opening, then load our data
+			if (this.props.loadOnOpen && nextState.isOpen && this.props.asyncLoadOptions) {
+				// load data
+				this.asyncLoadOptions('');
+			}
 		}
 	},
 
