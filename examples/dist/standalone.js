@@ -1419,8 +1419,6 @@ var Select = _react2['default'].createClass({
 		if (!this.props.onMenuScrollToBottom) return;
 		var target = event.target;
 
-		console.log("what seems to be the problem in the first comparison", target.scrollHeight, target.offsetHeight);
-		console.log("what seems to be the problem in the second comparison", target.scrollHeight - target.offsetHeight - target.scrollTop);
 		// will again here. we are having some issues with zoomed out screens and the
 		// second term in the upcoming if statement. As a result, we just need ot maker sure that
 		// the -1 > finishedScrolling < 1. This will account for any problems caused
