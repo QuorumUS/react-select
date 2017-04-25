@@ -555,6 +555,8 @@ const Select = React.createClass({
 		if (!this.props.onMenuScrollToBottom) return;
 		let { target } = event;
 		if (target.scrollHeight > target.offsetHeight && !(target.scrollHeight - target.offsetHeight - target.scrollTop)) {
+            console.log("what seems to be the problem in the first comparison", target.scrollHeight, target.offsetHeight)
+            console.log("what seems to be the problem in the second comparison", target.scrollHeight - target.offsetHeight - target.scrollTop)
 			this.props.onMenuScrollToBottom(this.state.inputValue);
 		}
 	},
